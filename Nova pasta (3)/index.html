@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExploreMundo – Descubra Lugares Incríveis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul-header:  #4a90e2; 
+      --laranja:      #e8732a; 
+      --laranja-hover:#cf5e18;
+      --azul:         #1a73c7;
+      --cinza-claro:  #f0f4f8;
+      --cinza-texto:  #555;
+      --branco:       #fff;
+      --sombra:       0 4px 18px rgba(0,0,0,.13);
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    nav {
+      background: var(--azul-header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 65px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 24px;
+      color: var(--laranja); 
+    }
+
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--branco); text-decoration: none; font-size: 16px; }
+
+    .hero {
+      position: relative;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--branco);
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero h1 { font-size: 52px; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hero p { font-size: 18px; margin-bottom: 25px; }
+
+    .section-destinos { background: var(--cinza-claro); padding: 50px 40px; text-align: center; }
+    .cards-grid { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 32px; }
+    .card { background: var(--branco); border-radius: 10px; overflow: hidden; width: 210px; box-shadow: var(--sombra); text-align: left; }
+    .card img { width: 100%; height: 138px; object-fit: cover; }
+    .card-body { padding: 14px 16px; }
+    .btn-laranja-container { text-align: center; margin-top: 40px; }
+
+    .section-sobre { background: var(--branco); padding: 60px 40px; text-align: center; border-top: 1px solid #e2e8f0; }
+    .section-sobre h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: #222; margin-bottom: 20px; }
+    .section-sobre p { color: var(--cinza-texto); font-size: 17px; max-width: 600px; margin: 0 auto 30px; line-height: 1.7; }
+
+    .btn-laranja {
+      display: inline-block;
+      background: var(--laranja);
+      color: var(--branco);
+      font-weight: 700;
+      font-size: 18px;
+      padding: 12px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-laranja:hover { background: var(--laranja-hover); }
+
+    .section-contato { background: var(--cinza-claro); padding: 50px 40px; }
+    .contato-inner { max-width: 860px; margin: 0 auto; display: flex; gap: 48px; }
+    .fale-conosco, .onde-estamos { flex: 1; }
+    
+    .form-group { margin-bottom: 12px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #c9d5e0; border-radius: 6px; font-family: inherit; }
+    .form-group textarea { resize: none; height: 100px; }
+
+    .fale-conosco .btn-container { text-align: center; margin-top: 20px; }
+    .btn-azul { background: var(--azul); color: var(--branco); padding: 12px 50px; border-radius: 8px; border: none; cursor: pointer; font-weight: 700; font-size: 16px; }
+
+    .mapa-container {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: var(--sombra);
+    }
+    .mapa-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .info-extra { display: flex; flex-direction: column; gap: 15px; }
+    .info-item { display: flex; align-items: center; gap: 10px; color: #003366; font-weight: 600; font-size: 14px; }
+    .info-item i { font-size: 18px; }
+    .linha-email { border-bottom: 1px solid #ccc; padding-bottom: 5px; flex: 1; }
+
+    footer { background: var(--azul); color: #fff; text-align: center; padding: 18px; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="#">
+      <span class="logo-text">📍 ExploreMundo</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="destinos.html">Destinos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img class="hero-img" src="lago.webp" alt="Lago" />
+    <div class="hero-content">
+      <h1>Descubra Lugares Incríveis!</h1>
+      <p>Explore os melhores destinos ao redor do mundo.</p>
+      <a href="sobre.html" class="btn-laranja">Saiba Mais</a>
+    </div>
+  </section>
+
+  <section class="section-destinos">
+    <h2>Destinos Populares</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <img src="images.jfif" alt="Praias" />
+        <div class="card-body"><h3>Praias Paradisíacas</h3><p>Conheça as mais belas praias</p></div>
+      </div>
+      <div class="card">
+        <img src="montanha.jpg" alt="Montanhas" />
+        <div class="card-body"><h3>Montanhas</h3><p>Aventuras nas alturas</p></div>
+      </div>
+      <div class="card">
+        <img src="fortaleza.webp" alt="Cidades" />
+        <div class="card-body"><h3>Cidades Históricas</h3><p>Explore a cultura e a história</p></div>
+      </div>
+    </div>
+    <div class="btn-laranja-container">
+      <a href="destinos.html" class="btn-laranja">Ver Mais Destinos</a>
+    </div>
+  </section>
+
+  <section class="section-sobre" id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Somos apaixonados por viagens e queremos ajudar você a explorar o mundo!</p>
+    <a href="sobre.html" class="btn-laranja">Leia Mais</a>
+  </section>
+
+  <section class="section-contato" id="contato">
+    <div class="contato-inner">
+      <div class="fale-conosco">
+        <h3>Fale Conosco</h3>
+        <div class="form-group"><input type="text" placeholder="Nome" /></div>
+        <div class="form-group"><input type="email" placeholder="E-mail" /></div>
+        <div class="form-group"><textarea placeholder="Mensagem"></textarea></div>
+        <div class="btn-container">
+          <button class="btn-azul">Enviar</button>
+        </div>
+      </div>
+      <div class="onde-estamos">
+        <h3>Onde Estamos</h3>
+        <div class="mapa-container">
+          <img src="mapa.jfif" alt="Mapa de Localização" class="mapa-img">
+        </div>
+        <div class="info-extra">
+          <div class="info-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="linha-email">email: contato@exploremundo.com</span>
+          </div>
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>(11) 1234-5678</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2024 ExploreMundo – Todos os direitos reservados</footer>
+
+</body>
+</html>
