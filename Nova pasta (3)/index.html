@@ -28,14 +28,20 @@
 
     nav {
       background: var(--azul-header);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      height: 65px;
       position: sticky;
       top: 0;
       z-index: 100;
+      width: 100%;
+    }
+
+    .nav-inner {
+      max-width: 674px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 65px;
+      padding: 0;
     }
 
     .logo {
@@ -45,11 +51,16 @@
       text-decoration: none;
     }
 
+    .logo-pin { font-size: 24px; }
+
     .logo-text {
       font-weight: 800;
       font-size: 24px;
-      color: var(--laranja); 
+      letter-spacing: -.3px;
     }
+
+    .logo-text-explore { color: var(--branco); }
+    .logo-text-mundo { color: #e74c3c; }
 
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { color: var(--branco); text-decoration: none; font-size: 16px; }
@@ -76,17 +87,6 @@
     .hero h1 { font-size: 52px; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
     .hero p { font-size: 18px; margin-bottom: 25px; }
 
-    .section-destinos { background: var(--cinza-claro); padding: 50px 40px; text-align: center; }
-    .cards-grid { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 32px; }
-    .card { background: var(--branco); border-radius: 10px; overflow: hidden; width: 210px; box-shadow: var(--sombra); text-align: left; }
-    .card img { width: 100%; height: 138px; object-fit: cover; }
-    .card-body { padding: 14px 16px; }
-    .btn-laranja-container { text-align: center; margin-top: 40px; }
-
-    .section-sobre { background: var(--branco); padding: 60px 40px; text-align: center; border-top: 1px solid #e2e8f0; }
-    .section-sobre h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: #222; margin-bottom: 20px; }
-    .section-sobre p { color: var(--cinza-texto); font-size: 17px; max-width: 600px; margin: 0 auto 30px; line-height: 1.7; }
-
     .btn-laranja {
       display: inline-block;
       background: var(--laranja);
@@ -100,8 +100,20 @@
     }
     .btn-laranja:hover { background: var(--laranja-hover); }
 
+    .section-destinos { background: var(--cinza-claro); padding: 50px 0; text-align: center; }
+    .cards-grid { display: flex; justify-content: center; gap: 22px; margin-top: 32px; }
+    .card { background: var(--branco); border-radius: 10px; overflow: hidden; width: 210px; box-shadow: var(--sombra); text-align: left; }
+    .card img { width: 100%; height: 138px; object-fit: cover; }
+    .card-body { padding: 14px 16px; }
+
+    .btn-destinos-container { text-align: center; margin-top: 40px; }
+
+    .section-sobre { background: var(--branco); padding: 60px 40px; text-align: center; border-top: 1px solid #e2e8f0; }
+    .section-sobre h2 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 20px; }
+    .section-sobre p { color: var(--cinza-texto); font-size: 17px; max-width: 600px; margin: 0 auto 30px; line-height: 1.7; }
+
     .section-contato { background: var(--cinza-claro); padding: 50px 40px; }
-    .contato-inner { max-width: 860px; margin: 0 auto; display: flex; gap: 48px; }
+    .contato-inner { max-width: 674px; margin: 0 auto; display: flex; gap: 48px; }
     .fale-conosco, .onde-estamos { flex: 1; }
     
     .form-group { margin-bottom: 12px; }
@@ -132,15 +144,21 @@
 <body>
 
   <nav>
-    <a class="logo" href="#">
-      <span class="logo-text">📍 ExploreMundo</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="destinos.html">Destinos</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a class="logo" href="#">
+        <span class="logo-pin">📍</span>
+        <span class="logo-text">
+          <span class="logo-text-explore">Explore</span>
+          <span class="logo-text-mundo">Mundo</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="destinos.html">Destinos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
   </nav>
 
   <section class="hero">
@@ -168,7 +186,7 @@
         <div class="card-body"><h3>Cidades Históricas</h3><p>Explore a cultura e a história</p></div>
       </div>
     </div>
-    <div class="btn-laranja-container">
+    <div class="btn-destinos-container">
       <a href="destinos.html" class="btn-laranja">Ver Mais Destinos</a>
     </div>
   </section>
@@ -193,7 +211,7 @@
       <div class="onde-estamos">
         <h3>Onde Estamos</h3>
         <div class="mapa-container">
-          <img src="mapa.jfif" alt="Mapa de Localização" class="mapa-img">
+          <img src="mapa.jfif" alt="Mapa" class="mapa-img">
         </div>
         <div class="info-extra">
           <div class="info-item">
